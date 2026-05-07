@@ -795,9 +795,7 @@ a {
     }
 }
 }
-.hidden {
-    display: none !important;
-}
+
 
 body.dark #ustawienia {
 flex-direction: column;
@@ -1657,15 +1655,16 @@ const keybord = document.getElementById("keybord");
 const UI = document.getElementById("keybordUI");
 
 // startowo schowana
-UI.classList.add("hidden");
+UI.style.display = "none"
 
 // klik = pokaż / schowaj
 keybord.addEventListener('click', function() {
-    if (UI.classList.contains("hidden")) {
-        UI.classList.remove("hidden");
-    } else {
-        UI.classList.add("hidden");
-    }
+if (UI.style.display == "none"){
+    UI.style.display = "flex"
+}
+else {
+  UI.style.display = "none"
+}
 });
 //WPISYWANIE CYFR
 function one() {
