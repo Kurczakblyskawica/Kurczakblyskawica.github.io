@@ -754,9 +754,37 @@ a {
      letter-spacing: 10px;
 }
 /* Media Query dla bardzo małych ekranów (np. telefony pionowo) */
-@media (max-width: 400px) {
+@media (max-width: 768px) {
+    /* CHAT wyżej */
     .main {
-        padding: 20px; /* Zmniejszony padding, żeby było więcej miejsca na tekst */
+        margin-bottom: 220px; /* robi miejsce na panel ustawień */
+    }
+
+    /* USTAWIENIA na dole jako osobny panel */
+    #ustawienia {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 90%;
+        max-width: 320px;
+
+        padding: 15px;
+        border-radius: 15px;
+        z-index: 999;
+
+        text-align: center;
+        letter-spacing: normal;
+
+        /* ODSTĘP WIZUALNY */
+        box-shadow: 0 0 20px rgba(0,0,0,0.4);
+
+        /* lekka przezroczystość */
+        backdrop-filter: blur(8px);
     }
 }
 
