@@ -758,44 +758,11 @@ a {
     .main {
         padding: 20px; /* Zmniejszony padding, żeby było więcej miejsca na tekst */
     }
-    
 }
 
-@media (max-width: 768px) {
-    /* CHAT wyżej */
-    .main {
-        margin-bottom: 220px; /* robi miejsce na panel ustawień */
-    }
-
-    /* USTAWIENIA na dole jako osobny panel */
-    #ustawienia {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-
-        width: 90%;
-        max-width: 320px;
-
-        padding: 15px;
-        border-radius: 15px;
-        z-index: 999;
-
-        text-align: center;
-        letter-spacing: normal;
-
-        /* ODSTĘP WIZUALNY */
-        box-shadow: 0 0 20px rgba(0,0,0,0.4);
-
-        /* lekka przezroczystość */
-        backdrop-filter: blur(8px);
-    }
+.hidden {
+    display: none !important;
 }
-}
-
 
 body.dark #ustawienia {
 flex-direction: column;
@@ -1038,8 +1005,6 @@ flex-direction: column;
     </div>
     </div>
     </div>
-    <br>
-    <br>
     
     <!-- TODO: ADD a more themes!!! np. dark ,white , dark blue , white blue, -->
 </body>
@@ -1650,22 +1615,12 @@ function heart() {
 }
 
 // logika klawiatury ekranowej
-// logika klawiatury ekranowej
-const keybord = document.getElementById("keybord");
-const UI = document.getElementById("keybordUI");
+const keybord = document.getElementById("keybord")
+const UI = document.getElementById("keybordUI")
 
-// startowo schowana
-UI.style.display = "none"
-
-// klik = pokaż / schowaj
-keybord.addEventListener('click', function() {
-if (UI.style.display == "none"){
-    UI.style.display = "flex"
-}
-else {
-  UI.style.display = "none"
-}
-});
+keybord.addEventListener('click', function(){
+UI.classList.toggle("hidden");
+})
 //WPISYWANIE CYFR
 function one() {
  UserInput.value += "1"
