@@ -1,1 +1,1936 @@
-# Kurczakblyskawica.github.io
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="shortcut icon" href="Icon.png" type="image/x-icon">
+    <title>Chat</title>
+</head>
+
+<style>
+/* Reset dla lepszego dopasowania na telefonach */
+* {
+    box-sizing: border-box;
+}
+
+body.dark {
+
+    text-align: center;
+    background-color: #000000;
+    color: white;
+    font-size: 25px;
+    margin: 0;
+    padding: 20px;
+}
+
+
+
+/* --- TRYB CIEMNY (DARK) --- */
+body.dark .main {
+    align-items: center;
+    border-radius: 15px;
+    border: 10px solid white;
+    padding: 50px;
+    width: 95%; /* Zmiana z 500px na % */
+    max-width: 500px; /* Maksymalna szerokość */
+    margin: 0 auto;
+}
+
+body.dark #input {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    width: 100%; /* Rozciąga się do szerokości .main */
+}
+
+body.dark .button {
+    display: block;
+    margin: 20px auto;
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 20px;
+    width: 100%; /* Przycisk dopasowany do szerokości */
+}
+
+body.dark .button:hover {
+    background-color: #a19f9f;
+}
+
+body.dark select {
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* --- TRYB JASNY (WHITE) --- */
+body.white {
+    text-align: center;
+    background-color: white;
+    color: black;
+    font-size: 25px;
+    margin: 0;
+    padding: 20px;
+}
+
+body.white .main {
+    align-items: center;
+    border-radius: 15px;
+    border: 10px solid black;
+    padding: 50px;
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+body.white #input {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+body.white .button {
+    display: block;
+    margin: 20px auto;
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 20px;
+    width: 100%;
+}
+
+body.white .button:hover {
+    background-color: #444444;
+}
+
+body.white select {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* --- NIEBIESKI MOTYW --- */
+body.darkBlue {
+    text-align: center;
+    background-color: rgb(42, 4, 179);
+    color: rgb(9, 3, 94);
+    font-size: 25px;
+    margin: 0;
+    padding: 20px;
+}
+
+body.darkBlue .main {
+    align-items: center;
+    border-radius: 15px;
+    border: 10px solid rgb(2, 47, 61);
+    padding: 50px;
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+body.darkBlue #input {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    background-color: rgb(3, 7, 68);
+    color: rgb(8, 47, 73);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+body.darkBlue .button {
+    display: block;
+    margin: 20px auto;
+    background-color: rgb(1, 19, 77);
+    color: rgb(4, 0, 255);
+    border-radius: 15px;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 20px;
+    width: 100%;
+}
+
+body.darkBlue select {
+    background-color: rgb(10, 2, 80);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* --- CZERWONY MOTYW --- */
+body.red {
+    font-size: 25px;
+    text-align: center;
+    background-color: #eb0101;
+    color: #470505;
+    margin: 0;
+    padding: 20px;
+}
+
+body.red .main {
+    align-items: center;
+    border-radius: 15px;
+    border: 10px solid rgb(116, 1, 1);
+    padding: 50px;
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+body.red #input {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    background-color: rgb(68, 3, 3);
+    color: rgb(255, 0, 0);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+body.red .button {
+    display: block;
+    margin: 20px auto;
+    background-color: rgb(114, 28, 28);
+    color: rgb(255, 0, 0);
+    border-radius: 15px;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 20px;
+    width: 100%;
+}
+
+body.red select {
+    background-color: rgb(94, 1, 1);
+    color: rgb(255, 0, 0);
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+body.green {
+    font-size: 25px;
+    text-align: center;
+    background-color: #3ca314;
+    color: #314435;
+    margin: 0;
+    padding: 20px;
+}
+
+body.green .main {
+    align-items: center;
+    border-radius: 15px;
+    border: 10px solid rgb(4, 75, 16);
+    padding: 50px;
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+body.green #input {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    background-color: rgb(5, 71, 16);
+    color: rgb(43, 255, 0);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+body.green .button {
+    display: block;
+    margin: 20px auto;
+    background-color: rgb(6, 80, 4);
+    color: rgb(0, 255, 34);
+    border-radius: 15px;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 20px;
+    width: 100%;
+}
+
+body.green select {
+    background-color: rgb(4, 119, 0);
+    color: rgb(72, 255, 0);
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+body.gold {
+    font-size: 25px;
+    text-align: center;
+    background-color: #000000;
+    color: gold;
+    margin: 0;
+    padding: 20px;
+}
+
+body.gold .main {
+    align-items: center;
+    border-radius: 15px;
+    border: 10px solid gold;
+    padding: 50px;
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+body.gold #input {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    background-color: rgb(150, 115, 20);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+body.gold .button {
+    display: block;
+    margin: 20px auto;
+   background-color: rgb(150, 115, 20);
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 20px;
+    width: 100%;
+}
+
+body.gold  select{
+    background-color: rgb(100, 91, 11);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+body.BluePink {
+    font-size: 25px;
+    text-align: center;
+
+      background-image: linear-gradient(to top, blue, pink);
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Opcjonalne: sprawia, że tło nie przewija się z treścią */
+    min-height: 100vh;
+    color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 20px;
+}
+
+body.BluePink .main {
+    align-items: center;
+    border-radius: 15px;
+    border: 10px solid rgb(104, 5, 143);
+    padding: 50px;
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+body.BluePink #input {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+       background-color: rgb(126, 3, 163);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+body.BluePink .button {
+    display: block;
+    margin: 20px auto;
+   background-color: rgb(126, 3, 163);
+    color: rgb(255, 255, 255);
+    border-radius: 15px;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 20px;
+    width: 100%;
+}
+
+body.BluePink select {
+    background-color: rgb(21, 3, 182);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+body.Matrix {
+    font-size: 25px;
+    text-align: center;
+
+      background-image: linear-gradient(to bottom, rgb(51, 255, 0), rgb(0, 0, 0));
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Opcjonalne: sprawia, że tło nie przewija się z treścią */
+    min-height: 100vh;
+    color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 20px;
+}
+
+body.Matrix .main {
+    align-items: center;
+    border-radius: 15px;
+    border: 10px solid rgb(0, 0, 0);
+    padding: 50px;
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+body.Matrix #input {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+       background-color: rgb(7, 66, 2);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+body.Matrix .button {
+    display: block;
+    margin: 20px auto;
+   background-color: rgb(0, 107, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 15px;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 20px;
+    width: 100%;
+}
+
+body.Matrix select {
+    background-color: rgb(26, 80, 2);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+body.Kurczak {
+    font-size: 25px;
+    text-align: center;
+
+      background-image: linear-gradient(to bottom, rgb(38, 0, 255), rgb(0, 255, 255));
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Opcjonalne: sprawia, że tło nie przewija się z treścią */
+    min-height: 100vh;
+    color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 20px;
+}
+
+body.Kurczak .main {
+    align-items: center;
+    border-radius: 15px;
+    border: 10px solid rgb(11, 112, 129);
+    padding: 50px;
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+body.Kurczak #input {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+       background-color: rgb(2, 79, 116);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+body.Kurczak .button {
+    display: block;
+    margin: 20px auto;
+   background-color: rgb(7, 99, 122);
+    color: rgb(255, 255, 255);
+    border-radius: 15px;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 20px;
+    width: 100%;
+}
+
+body.Kurczak select {
+    background-color: rgb(8, 76, 122);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+
+body.Sun {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-size: 25px;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background-image: linear-gradient(to top, orange, pink, purple);
+    color: white;
+}
+
+body.Sun .main {
+    align-items: center;
+    border-radius: 15px;
+    border: 10px solid rgb(255, 200, 0);
+    padding: 50px;
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+body.Sun #input {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+    border: 2px solid white;
+}
+
+body.Sun .button {
+    display: block;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 15px;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 20px;
+    width: 100%;
+    border: 2px solid white;
+}
+
+body.Sun .button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+body.Sun select {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+body.Fire {
+    font-size: 25px;
+    text-align: center;
+
+      background-image: linear-gradient(to top, rgb(255, 0, 0), rgb(255, 166, 0), yellow);
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Opcjonalne: sprawia, że tło nie przewija się z treścią */
+    min-height: 100vh;
+    color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 20px;
+}
+
+body.Fire .main {
+    align-items: center;
+    border-radius: 15px;
+    border: 10px solid rgb(230, 178, 7);
+    padding: 50px;
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+body.Fire #input {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+       background-color: rgb(116, 105, 13);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+body.Fire .button {
+    display: block;
+    margin: 20px auto;
+   background-color: rgb(253, 249, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 15px;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 20px;
+    width: 100%;
+}
+
+body.Fire select {
+    background-color: rgb(189, 192, 21);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+body.galaxy {
+    font-size: 25px;
+    text-align: center;
+
+    background-image: linear-gradient(to top, rgb(0, 17, 255), rgb(255, 0, 212), rgb(98, 0, 255));
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Opcjonalne: sprawia, że tło nie przewija się z treścią */
+    min-height: 100vh;
+    color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 20px;
+}
+
+body.galaxy .main {
+    align-items: center;
+    border-radius: 15px;
+    border: 10px solid rgb(131, 10, 105);
+    padding: 50px;
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+body.galaxy #input {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+       background-color: rgb(153, 0, 255);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+body.galaxy .button {
+    display: block;
+    margin: 20px auto;
+   background-color: rgb(128, 6, 177);
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 20px;
+    width: 100%;
+}
+
+body.galaxy select {
+    background-color: rgb(112, 11, 143);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+
+/* --- WSPÓLNE --- */
+.User {
+    text-align: right;
+}
+
+#emoji {
+    display: none;
+    background-color: grey;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 220px;
+    margin: 20px auto;
+    justify-content: center;
+    padding: 10px;
+}
+
+#emoji span {
+    width: calc(25% - 10px); /* 4 elementy w rzędzie */
+    text-align: center;
+}
+
+#emoji:hover p {
+    cursor: pointer;
+}
+#emojipanel:hover {
+    cursor: pointer;
+}
+
+#keybordUI {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 8px;
+    padding: 5px;
+    border: grey 15px solid;
+    background-color: grey;
+    border-radius: 10px;
+}
+
+.keyinput {
+    text-align: center;
+    border: #000000 2px solid;
+    background-color: #000000;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.keyinput:hover {
+    cursor: pointer;
+}
+
+.AI {
+    text-align: left;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+
+.panel {
+     display: flex;
+     margin: 2px;
+     letter-spacing: 10px;
+}
+/* Media Query dla bardzo małych ekranów (np. telefony pionowo) */
+@media (max-width: 400px) {
+    .main {
+        padding: 20px; /* Zmniejszony padding, żeby było więcej miejsca na tekst */
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+body.dark #ustawienia {
+flex-direction: column;
+    border-radius: 10px;
+    text-align: left;
+    border: white, 10px, solid;
+    height: min-content;
+    width: min-content;
+    position: fixed;
+    padding: 10px;
+}
+body.white #ustawienia {
+flex-direction: column;
+    border-radius: 10px;
+    text-align: left;
+    border: rgb(0, 0, 0), 10px, solid;
+    height: min-content;
+    width: min-content;
+    position: fixed;
+    padding: 10px;
+}
+body.red #ustawienia {
+flex-direction: column;
+    border-radius: 10px;
+    text-align: left;
+    border: rgb(0, 0, 0), 10px, solid;
+    height: min-content;
+    width: min-content;
+    position: fixed;
+    padding: 10px;
+}
+body.darkBlue #ustawienia {
+flex-direction: column;
+    border-radius: 10px;
+    text-align: left;
+    border: rgb(0, 0, 0), 10px, solid;
+    height: min-content;
+    width: min-content;
+    position: fixed;
+    padding: 10px;
+}
+body.green #ustawienia {
+flex-direction: column;
+    border-radius: 10px;
+    text-align: left;
+    border: rgb(26, 204, 9), 10px, solid;
+    height: min-content;
+    width: min-content;
+    position: fixed;
+    padding: 10px;
+}
+body.gold #ustawienia {
+flex-direction: column;
+    border-radius: 10px;
+    text-align: left;
+    border: rgb(163, 148, 7), 10px, solid;
+    height: min-content;
+    width: min-content;
+    position: fixed;
+    padding: 10px;
+}
+body.BluePink #ustawienia {
+flex-direction: column;
+    border-radius: 10px;
+    text-align: left;
+    border: rgb(140, 0, 255), 10px, solid;
+    height: min-content;
+    width: min-content;
+    position: fixed;
+    padding: 10px;
+}
+body.Matrix #ustawienia {
+flex-direction: column;
+    border-radius: 10px;
+    text-align: left;
+    border: rgb(28, 116, 20), 10px, solid;
+    height: min-content;
+    width: min-content;
+    position: fixed;
+    padding: 10px;
+}
+body.Kurczak #ustawienia {
+flex-direction: column;
+    border-radius: 10px;
+    text-align: left;
+    border: rgb(16, 128, 180), 10px, solid;
+    height: min-content;
+    width: min-content;
+    position: fixed;
+    padding: 10px;
+}
+body.Sun #ustawienia {
+flex-direction: column;
+    border-radius: 10px;
+    text-align: left;
+    border: rgb(255, 0, 221), 10px, solid;
+    height: min-content;
+    width: min-content;
+    position: fixed;
+    padding: 10px;
+}
+body.Fire #ustawienia {
+flex-direction: column;
+    border-radius: 10px;
+    text-align: left;
+    border: rgb(148, 103, 19), 10px, solid;
+    height: min-content;
+    width: min-content;
+    position: fixed;
+    padding: 10px;
+}
+body.galaxy #ustawienia {
+flex-direction: column;
+    border-radius: 10px;
+    text-align: left;
+    border: rgb(103, 9, 165), 10px, solid;
+    height: min-content;
+    width: min-content;
+    position: fixed;
+    padding: 10px;
+}
+
+#keybord:hover {
+    cursor: pointer;
+}
+#openustawienia {
+    cursor: pointer;
+}
+
+
+</style>
+
+
+<body>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!--? Lista motywów -->
+      
+  
+
+    <br>
+            <div id="ustawienia">
+        <p id="u1">Język</p>
+      
+          <select id="jezyki">
+            <option value="pl">polski</option>
+            <option value="en">English</option>
+            <option value="de">German</option>
+            <option value="ep">Español</option>
+          </select>
+          
+        <p id="u2">Motyw</p>
+        
+             <select id="motywy" >
+     <option id="s1" value="1"></option>
+     <option id="s2" value ="2"></option>
+     <option id="s3" value="3"> </option>
+     <option id="s4" value="4"></option>
+     <option id="s5" value="5"></option>
+     <option id="s6" value="6"></option>
+     <option id="s7" value="7"></option>
+     <option  value="8">Matrix</option>
+     <option id="s9" value="9"></option>
+     <option id="s10" value="10"></option>
+     <option id="s11" value="11"></option>
+     <option id="s12" value="12"></option>
+    </select>
+        </div>
+    <div class="main">
+        <p id="openustawienia">≡</p>
+        <hr>
+
+ 
+     <div class="User">
+     <h2 id="Userinput"></h2>
+    </div>
+    <div class="AI">
+        <h2 id="AIoutput"></h2>
+    <br>
+    <div class="wiadomosc">
+     <input id="input" type="text" >
+    <button id="Wysli" class="button" onclick="Wysli()"></button>
+    
+    <div class="panel">
+     <p id="emojipanel" onclick="EmojiBar()">😀</p>
+     <p id="keybord">⌨</p>
+    </div>
+    
+    </div>
+    <div id="emoji">
+      <p onclick="like()">👍</p>
+      <p onclick="dislike()">👎</p>
+      <p onclick="yey()">😀</p>
+      <p onclick="happy()">😁</p>
+      <p onclick="smiech()">🤣</p>
+      <p onclick="heart()">❤</p>
+    </div>
+    <div id="keybordUI" class="hidden">
+       <div onclick="one()" class="keyinput">1</div>
+       <div onclick="two()" class="keyinput">2</div>
+       <div onclick="tree()" class="keyinput">3</div>
+       <div onclick="four()" class="keyinput">4</div>
+       <div onclick="five()" class="keyinput">5</div>
+       <div onclick="six()" class="keyinput">6</div>
+       <div onclick="seven()" class="keyinput">7</div>
+       <div onclick="eigth()" class="keyinput">8</div>
+       <div onclick="nine()" class="keyinput">9</div>
+       <div onclick="zero()" class="keyinput">0</div>
+       <div onclick="Q()" class="keyinput">Q</div>
+       <div onclick="W()" class="keyinput">W</div>
+       <div onclick="E()" class="keyinput">E</div>
+       <div onclick="R()" class="keyinput">R</div>
+       <div onclick="T()" class="keyinput">T</div>
+       <div onclick="Y()"class="keyinput">Y</div>
+       <div onclick="U()" class="keyinput">U</div>
+       <div onclick="I()" class="keyinput">I</div>
+       <div onclick="O()" class="keyinput">O</div>
+       <div onclick="P()" class="keyinput">P</div>
+       <div onclick="A()" class="keyinput">A</div>
+       <div onclick="S()" class="keyinput">S</div>
+       <div onclick="D()" class="keyinput">D</div>
+       <div onclick="F()" class="keyinput">F</div>
+       <div onclick="G()" class="keyinput">G</div>
+       <div onclick="H()" class="keyinput">H</div>
+       <div onclick="J()" class="keyinput">J</div>
+       <div onclick="K()" class="keyinput">K</div>
+       <div onclick="L()" class="keyinput">L</div>
+       <div onclick="Z()" class="keyinput">Z</div>
+       <div onclick="X()" class="keyinput">X</div>
+       <div onclick="C()" class="keyinput">C</div>
+       <div onclick="V()" class="keyinput">V</div>
+       <div onclick="B()" class="keyinput">B</div>
+       <div onclick="N()" class="keyinput">N</div>
+       <div onclick="M()" class="keyinput">M</div>
+
+    </div>
+    </div>
+    </div>
+    
+    <!-- TODO: ADD a more themes!!! np. dark ,white , dark blue , white blue, -->
+</body>
+<script>
+
+const lang = document.getElementById("jezyki")
+const switcher = document.getElementById("motywy");
+const s1 = document.getElementById("s1")
+const s2 = document.getElementById("s2")
+const s3 = document.getElementById("s3")
+const s4 = document.getElementById("s4")
+const s5 = document.getElementById("s5")
+const s6 = document.getElementById("s6")
+const s7 = document.getElementById("s7")
+const s9 = document.getElementById("s9")
+const s10 = document.getElementById("s10")
+const s11 = document.getElementById("s11")
+const s12 = document.getElementById("s12")
+const u1 = document.getElementById("u1")
+const u2 = document.getElementById("u2")
+
+    //!Input i output
+const User = document.getElementById("Userinput");
+const UserInput = document.getElementById("input");
+const AI = document.getElementById("AIoutput");
+const But = document.getElementById("Wysli")
+const openustawienia = document.getElementById("openustawienia")
+const ustawienia = document.getElementById("ustawienia")
+
+ustawienia.style.display = "none"
+openustawienia.addEventListener('click', function(){
+    if (ustawienia.style.display == "none") {
+        ustawienia.style.display = "flex"
+    }
+    else {
+        ustawienia.style.display = "none"
+    }
+})
+//TODO: wysyłanie
+ UserInput.addEventListener("keypress", function(event) {
+     if (event.key === "Enter") {
+         Wysli();
+     }
+});
+
+
+
+// funkcja do wysyłania
+ function Wysli() {
+ 
+    if (lang.value == "pl") {
+        Polski()
+    }
+    else if (lang.value == "en") {
+        English()
+    }
+    else if (lang.value == "de") {
+        German()
+    }
+    else if (lang.value == "ep") {
+        Hispan()
+    }
+    
+    }
+
+function Polski() {
+      let wiadomoscUzytkownika = UserInput.value.toLowerCase();
+
+   if (wiadomoscUzytkownika.length == 0) {
+     console.log("Nie może być puste");
+     return; // Kończymy funkcję, jeśli nic nie wpisano
+    }
+
+// 1. Najpierw pokazujemy co napisał użytkownik
+    User.textContent = UserInput.value;
+
+// 2. Czyścimy input od razu
+    UserInput.value = "";
+  
+
+// 3. Pokazujemy, że bot "myśli"
+AI.textContent = "...";
+
+// 4. Czekamy 1 sekundę (1000ms) i dopiero wtedy bot odpowiada
+setTimeout(() => {
+
+    //!prompty
+    const Przywitania = ["hej", "siema", "elo", "dzien dobry"];
+    const Przekleństwa = ["kurwa", "chuj", "pierdole", "jebac"];
+    const pytania = ["?"];
+    const nazwa = ["jak sie nazywasz", "jak masz na imie"];
+    const kebabinho = ["kebabinho"];
+    const istnienie = ["kto cie stworzył", "skad pochodzisz" , "kim jest twój człowiek", "skad jestes"];
+    const Emocje = ["dobrze", "zle", "smutny", "zly", "obrzydzenie", "smutno", "smutna"];
+    const chip = ["pihc gnicnad", "hsif"];
+    const calc = ["calc", "kalkulator", "kalc" , "calculator"];
+    const zarty = ["opowiedz zart", "powiedz mi zart", "wygeneruj zart", "chce zart"];
+    const kurczaczek = ["kurczakblyskawica", "kurczakbłyskawica"];
+
+    // Znalezienie promptów
+    let znaleziono = Przywitania.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let Nieladnie = Przekleństwa.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let pytanie = pytania.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let imie = nazwa.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let kebab = kebabinho.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let istn = istnienie.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let emocjewyk = Emocje.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let chipspr = chip.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let calculator = calc.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let zartywyk = zarty.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let kurak = kurczaczek.some(slowo => wiadomoscUzytkownika.includes(slowo));
+
+    // logika bota (MUSI być tutaj!)
+    if (Nieladnie) {
+        AI.textContent = "Nie ładnie tak pisać!";
+    }
+    else if (pytanie) {
+        let odpowiedz = ["Tak", "Nie", "Może", "Nie wiem"];
+        let final = odpowiedz[Math.floor(Math.random() * odpowiedz.length)];
+        AI.textContent = final;
+    }
+    else if (znaleziono) {
+        let odpowiedz1 = ["hej jak się masz?", "siema eniu", "Cześć", "Witam Ciebie, jak ci dzień mija?"];
+        let final1 = odpowiedz1[Math.floor(Math.random() * odpowiedz1.length)];
+        AI.textContent = final1;
+    }
+    else if (imie) {
+        AI.textContent = "Mam na imie KChat";
+    }
+    else if (kebab) {
+        AI.textContent = "kebabinho";
+        AI.innerHTML = '<a href="https://youtube.com/@kebabinho-official?si=SPvRmvoO7zXXB3Y4">kebabinho</a>';
+    }
+    else if (istn) {
+        AI.textContent = "Pochodze z polski a stworzył mnie kurczakblyskawica lol";
+    }
+    else if (emocjewyk) {
+        let EmocjeOdp = ["To super oby tak dalej!", "A co się stało ?", "Rozumiem że masz takie emocje ale pamiętaj że jestem z tobą"];
+        let odpEmocja = EmocjeOdp[Math.floor(Math.random() * EmocjeOdp.length)];
+        AI.textContent = odpEmocja;
+    }
+    else if (chipspr) {
+        let los = ["I love chip!!!", "I love fish!!!"];
+        let fin = los[Math.floor(Math.random() * los.length)];
+        AI.textContent = fin;
+
+        let url = ["https://youtu.be/WIRK_pGdIdA?si=8z4RhwwK_7_Gu08x" , "https://www.youtube.com/watch?v=YAgJ9XugGBo&t=54s"];
+        let urlfin = url[Math.floor(Math.random()* url.length)];
+        window.open(urlfin);
+    }
+    else if (calculator) {
+        AI.textContent = "Uruchamiam kalkulator...";
+        window.open("calc.htm");
+    }
+    else if (zartywyk) {
+        let listazart = [
+            "Co mówi ksiądz po ślubie informatyka? Pobieranie zakończone",
+            "skąd informatyk bierze wode? z e-kranu",
+            "Mamo, tata spadł ze schodów! I co powiedział? Przekleństwa ominąć? Tak.To spadał w milczeniu.",
+            "Maksyn to zły żart"
+        ];
+        let aktuzart = listazart[Math.floor(Math.random() * listazart.length)];
+        AI.textContent = aktuzart;
+    }
+    else if (kurak) {
+        AI.innerHTML = '<a href="https://www.youtube.com/@kurczakblyskawica">kurczakblyskawica</a>';
+    }
+    else {
+        let losowosc = ["Nie rozumiem Cię!", "Nie rozumiem tego słowa", "Czy możesz powtórzyć?"];
+        let odplosowa = losowosc[Math.floor(Math.random() * losowosc.length)];
+        AI.textContent = odplosowa;
+    }
+
+}, 1000);
+}
+
+function English() {
+
+    let wiadomoscUzytkownika = UserInput.value.toLowerCase();
+
+if (wiadomoscUzytkownika.length == 0) {
+    console.log("Cannot be empty");
+    return;
+}
+
+// 1. show user message
+User.textContent = UserInput.value;
+
+// 2. clear input
+UserInput.value = "";
+
+// 3. thinking
+AI.textContent = "...";
+
+setTimeout(() => {
+
+    // PROMPTS (ENGLISH)
+    const greetings = ["hi", "hello", "good morning"];
+    const badWords = ["fuck", "shit", "damn"];
+    const questions = ["?"];
+    const nameAsk = ["what is your name"];
+    const kebabinho = ["kebabinho"];
+    const existence = ["who created you", "where are you from", "who made you", "what is your origin"];
+    const emotions = ["good", "bad", "sad", "angry", "disgusted", "happy"];
+    const chip = ["dancing chip", "fish"];
+    const calc = ["calculator", "calc", "compute"];
+    const jokes = ["tell a joke", "say a joke", "make a joke", "i want a joke"];
+    const chicken = ["kurczakblyskawica", "lightning chicken"];
+
+    // detection
+    let foundGreeting = greetings.some(word => wiadomoscUzytkownika.includes(word));
+    let rude = badWords.some(word => wiadomoscUzytkownika.includes(word));
+    let question = questions.some(word => wiadomoscUzytkownika.includes(word));
+    let askName = nameAsk.some(word => wiadomoscUzytkownika.includes(word));
+    let kebab = kebabinho.some(word => wiadomoscUzytkownika.includes(word));
+    let exist = existence.some(word => wiadomoscUzytkownika.includes(word));
+    let emotionCheck = emotions.some(word => wiadomoscUzytkownika.includes(word));
+    let chipCheck = chip.some(word => wiadomoscUzytkownika.includes(word));
+    let calculator = calc.some(word => wiadomoscUzytkownika.includes(word));
+    let jokeCheck = jokes.some(word => wiadomoscUzytkownika.includes(word));
+    let chickenCheck = chicken.some(word => wiadomoscUzytkownika.includes(word));
+
+    // BOT RESPONSES (ENGLISH)
+    if (rude) {
+        AI.textContent = "That's not very nice!";
+    }
+    else if (question) {
+        let answers = ["Yes", "No", "Maybe", "I don't know"];
+        AI.textContent = answers[Math.floor(Math.random() * answers.length)];
+    }
+    else if (foundGreeting) {
+        let answers = [
+            "Hi, how are you?",
+            "Hello!",
+            "Hey there!",
+            "Hi, nice to see you!"
+        ];
+        AI.textContent = answers[Math.floor(Math.random() * answers.length)];
+    }
+    else if (askName) {
+        AI.textContent = "My name is KChat";
+    }
+    else if (kebab) {
+        AI.textContent = "kebabinho";
+        AI.innerHTML = '<a href="https://youtube.com/@kebabinho-official?si=SPvRmvoO7zXXB3Y4">kebabinho</a>';
+    }
+    else if (exist) {
+        AI.textContent = "I come from Poland and I was created by Kurczakblyskawica lol";
+    }
+    else if (emotionCheck) {
+        let answers = [
+            "That's great!",
+            "What happened?",
+            "I understand you, I'm here with you"
+        ];
+        AI.textContent = answers[Math.floor(Math.random() * answers.length)];
+    }
+    else if (chipCheck) {
+        let texts = ["I love chip!!!", "I love fish!!!"];
+        AI.textContent = texts[Math.floor(Math.random() * texts.length)];
+
+        let urls = [
+            "https://youtu.be/WIRK_pGdIdA?si=8z4RhwwK_7_Gu08x",
+            "https://www.youtube.com/watch?v=YAgJ9XugGBo&t=54s"
+        ];
+        window.open(urls[Math.floor(Math.random() * urls.length)]);
+    }
+    else if (calculator) {
+        AI.textContent = "Opening calculator...";
+        window.open("calc.htm");
+    }
+    else if (jokeCheck) {
+        let jokesList = [
+            "What does a priest say at a programmer's wedding? Download completed.",
+            "Where does a programmer get water? From the e-screen.",
+            "Mom, dad fell down the stairs! And what did he say? Silence mode enabled.",
+            "Maksyn is a bad joke"
+        ];
+        AI.textContent = jokesList[Math.floor(Math.random() * jokesList.length)];
+    }
+    else if (chickenCheck) {
+        AI.innerHTML = '<a href="https://www.youtube.com/@kurczakblyskawica">kurczakblyskawica</a>';
+    }
+    else {
+        let fallback = [
+            "I don't understand you!",
+            "Can you repeat that?",
+            "I didn't get that"
+        ];
+        AI.textContent = fallback[Math.floor(Math.random() * fallback.length)];
+    }
+
+}, 1000);
+}
+
+function German() {
+   
+
+    let wiadomoscUzytkownika = UserInput.value.toLowerCase();
+
+    if (wiadomoscUzytkownika.length == 0) {
+        console.log("Darf nicht leer sein");
+        return;
+    }
+
+    // 1. pokaż wiadomość użytkownika
+    User.textContent = UserInput.value;
+
+    // 2. wyczyść input
+    UserInput.value = "";
+
+    // 3. bot "myśli"
+    AI.textContent = "...";
+
+    setTimeout(() => {
+
+        const Begruessungen = ["hallo", "hi", "hey", "guten tag"];
+        const Schimpfwoerter = ["scheiße", "fuck", "arsch", "verdammt"];
+        const Fragen = ["?"];
+        const Name = ["wie heißt du", "was ist dein name"];
+        const Kebab = ["kebabinho"];
+        const Existenz = ["wer hat dich erstellt", "woher kommst du", "wer hat dich gemacht", "was bist du"];
+        const Emotionen = ["gut", "schlecht", "traurig", "wütend", "glücklich"];
+        const Calc = ["rechner", "calculator", "calc"];
+        const Witze = ["erzähl einen witz", "mach einen witz", "witz"];
+        const Kurczak = ["kurczakblyskawica", "blitz hähnchen"];
+
+        let foundGreeting = Begruessungen.some(s => wiadomoscUzytkownika.includes(s));
+        let rude = Schimpfwoerter.some(s => wiadomoscUzytkownika.includes(s));
+        let question = Fragen.some(s => wiadomoscUzytkownika.includes(s));
+        let askName = Name.some(s => wiadomoscUzytkownika.includes(s));
+        let kebab = Kebab.some(s => wiadomoscUzytkownika.includes(s));
+        let exist = Existenz.some(s => wiadomoscUzytkownika.includes(s));
+        let emotion = Emotionen.some(s => wiadomoscUzytkownika.includes(s));
+        let calculator = Calc.some(s => wiadomoscUzytkownika.includes(s));
+        let joke = Witze.some(s => wiadomoscUzytkownika.includes(s));
+        let chicken = Kurczak.some(s => wiadomoscUzytkownika.includes(s));
+
+        if (rude) {
+            AI.textContent = "Das ist nicht nett!";
+        }
+        else if (question) {
+            let answers = ["Ja", "Nein", "Vielleicht", "Ich weiß nicht"];
+            AI.textContent = answers[Math.floor(Math.random() * answers.length)];
+        }
+        else if (foundGreeting) {
+            let answers = ["Hallo!", "Hi, wie geht's?", "Hey!", "Guten Tag!"];
+            AI.textContent = answers[Math.floor(Math.random() * answers.length)];
+        }
+        else if (askName) {
+            AI.textContent = "Ich heiße KChat";
+        }
+        else if (kebab) {
+            AI.textContent = "kebabinho";
+            AI.innerHTML = '<a href="https://youtube.com/@kebabinho-official?si=SPvRmvoO7zXXB3Y4">kebabinho</a>';
+        }
+        else if (exist) {
+            AI.textContent = "Ich komme aus Polen und wurde von Kurczakblyskawica erstellt.";
+        }
+        else if (emotion) {
+            let answers = ["Das ist gut!", "Was ist passiert?", "Ich verstehe dich."];
+            AI.textContent = answers[Math.floor(Math.random() * answers.length)];
+        }
+        else if (calculator) {
+            AI.textContent = "Rechner wird geöffnet...";
+            window.open("calc.htm");
+        }
+        else if (joke) {
+            let jokes = [
+                "Was sagt ein Informatiker bei der Hochzeit? Download abgeschlossen.",
+                "Wo bekommt ein Programmierer Wasser? Aus dem E-Bildschirm.",
+                "Mama, Papa ist die Treppe runtergefallen!"
+            ];
+            AI.textContent = jokes[Math.floor(Math.random() * jokes.length)];
+        }
+        else if (chicken) {
+            AI.innerHTML = '<a href="https://www.youtube.com/@kurczakblyskawica">kurczakblyskawica</a>';
+        }
+        else {
+            let fallback = ["Ich verstehe dich nicht!", "Kannst du es wiederholen?", "Ich habe das nicht verstanden."];
+            AI.textContent = fallback[Math.floor(Math.random() * fallback.length)];
+        }
+
+    }, 1000);
+}
+
+function Hispan() {
+    let wiadomoscUzytkownika = UserInput.value.toLowerCase();
+
+if (wiadomoscUzytkownika.length == 0) {
+    console.log("No puede estar vacío");
+    return;
+}
+
+// 1. Mostramos lo que escribió el usuario
+User.textContent = UserInput.value;
+
+// 2. Limpiamos input
+UserInput.value = "";
+
+// 3. Bot “piensa”
+AI.textContent = "...";
+
+// 4. Espera 1 segundo
+setTimeout(() => {
+
+    //! PROMPTS EN ESPAÑOL
+    const Przywitania = ["hola", "hey", "buenas", "buenos dias"];
+    const Przekleństwa = ["mierda", "joder", "puta", "fuck", "coño"];
+    const pytania = ["?"];
+    const nazwa = ["como te llamas", "cual es tu nombre", "quien eres"];
+    const kebabinho = ["kebabinho"];
+    const istnienie = ["quien te creó", "de donde eres", "quien es tu creador"];
+    const Emocje = ["bien", "mal", "triste", "enojado", "asco", "feliz", "tristeza"];
+    const chip = ["pihc gnicnad", "hsif"];
+    const calc = ["calc", "calculadora", "calculator"];
+    const zarty = ["cuentame un chiste", "dime un chiste", "quiero un chiste"];
+    const kurczaczek = ["kurczakblyskawica", "kurczakbłyskawica"];
+
+    // Detectar prompts
+    let znaleziono = Przywitania.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let Nieladnie = Przekleństwa.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let pytanie = pytania.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let imie = nazwa.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let kebab = kebabinho.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let istn = istnienie.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let emocjewyk = Emocje.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let chipspr = chip.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let calculator = calc.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let zartywyk = zarty.some(slowo => wiadomoscUzytkownika.includes(slowo));
+    let kurak = kurczaczek.some(slowo => wiadomoscUzytkownika.includes(slowo));
+
+    // LOGIKA BOTA
+    if (Nieladnie) {
+        AI.textContent = "¡No se habla así!";
+    }
+    else if (pytanie) {
+        let odpowiedz = ["Sí", "No", "Tal vez", "No lo sé"];
+        AI.textContent = odpowiedz[Math.floor(Math.random() * odpowiedz.length)];
+    }
+    else if (znaleziono) {
+        let odpowiedz1 = ["hola 👋", "¿qué tal?", "¡buenas!", "¿cómo estás?"];
+        AI.textContent = odpowiedz1[Math.floor(Math.random() * odpowiedz1.length)];
+    }
+    else if (imie) {
+        AI.textContent = "Me llamo KChat";
+    }
+    else if (kebab) {
+        AI.innerHTML = '<a href="https://youtube.com/@kebabinho-official?si=SPvRmvoO7zXXB3Y4">kebabinho</a>';
+    }
+    else if (istn) {
+        AI.textContent = "Soy de Polonia y me creó kurczakblyskawica 😎";
+    }
+    else if (emocjewyk) {
+        let EmocjeOdp = [
+            "¡Qué bien!",
+            "¿Qué pasó?",
+            "Estoy contigo 💙"
+        ];
+        AI.textContent = EmocjeOdp[Math.floor(Math.random() * EmocjeOdp.length)];
+    }
+    else if (chipspr) {
+        let los = ["¡Me encanta chip!", "¡Me encanta fish!"];
+        AI.textContent = los[Math.floor(Math.random() * los.length)];
+
+        let url = [
+            "https://youtu.be/WIRK_pGdIdA?si=8z4RhwwK_7_Gu08x",
+            "https://www.youtube.com/watch?v=YAgJ9XugGBo&t=54s"
+        ];
+        window.open(url[Math.floor(Math.random() * url.length)]);
+    }
+    else if (calculator) {
+        AI.textContent = "Abriendo calculadora...";
+        window.open("calc.htm");
+    }
+    else if (zartywyk) {
+        let listazart = [
+            "¿Qué dice un informático en una boda? Descarga completada 😂",
+            "¿De dónde saca agua un programador? Del e-cristal",
+            "Mamá: ¡papá cayó por las escaleras! Hijo: ¿y qué dijo? Mamá: nada, cayó en silencio.",
+            "Este es un mal chiste 😅"
+        ];
+        AI.textContent = listazart[Math.floor(Math.random() * listazart.length)];
+    }
+    else if (kurak) {
+        AI.innerHTML = '<a href="https://www.youtube.com/@kurczakblyskawica">kurczakblyskawica</a>';
+    }
+    else {
+        let losowosc = ["¡No te entiendo!", "No comprendo eso", "¿Puedes repetir?"];
+        AI.textContent = losowosc[Math.floor(Math.random() * losowosc.length)];
+    }
+
+}, 1000);
+}
+
+    
+     
+ 
+ 
+
+function updateLanguage() {
+    if (lang.value === "pl") {
+        u1.textContent = "Język"
+        u2.textContent = "Motyw"
+        s1.textContent = "Czarny"
+        s2.textContent = "Biały"
+        s3.textContent = "Niebieski"
+        s4.textContent = "Czerwony"
+        s5.textContent = "Zielony"
+        s6.textContent = "Złoty"
+        s7.textContent = "Niebieski i rózowy grandient"
+        s9.textContent = "Kurczak"
+        s10.textContent = "Zachód słońca"
+        s11.textContent = "Ogień"
+        s12.textContent = "Kosmos"
+        But.textContent = "Wyślij";
+        UserInput.placeholder = "Napisz coś...";
+    } 
+    else if (lang.value === "en") {
+        u1.textContent = "Language"
+        u2.textContent = "Theme"
+        s1.textContent = "Dark"
+        s2.textContent = "White"
+        s3.textContent = "Blue"
+        s4.textContent = "Red"
+        s5.textContent = "Green"
+        s6.textContent = "Gold"
+        s7.textContent = "Blue and pink grandient"
+        s9.textContent = "Chiken"
+        s10.textContent = "Sunset"
+        s11.textContent = "Fire"
+        s12.textContent = "Galaxy"
+        But.textContent = "Send";
+        UserInput.placeholder = "Type something...";
+    }
+    else if (lang.value == "de") {
+       u1.textContent = "Sprache";
+       u2.textContent = "Design"; // lub "Thema"
+       s1.textContent = "Dunkel";
+       s2.textContent = "Weiß";
+       s3.textContent = "Blau";
+       s4.textContent = "Rot";
+       s5.textContent = "Grün";
+       s6.textContent = "Gold";
+       s7.textContent = "Blau-pinker Farbverlauf";
+       s9.textContent = "Hähnchen";
+       s10.textContent = "Sonnenuntergang";
+       s11.textContent = "Feuer";
+       s12.textContent = "Galaxie";
+       But.textContent = "Senden";
+       UserInput.placeholder = "Schreibe etwas...";
+    }
+    else if (lang.value == "ep"){
+        u1.textContent = "Idioma";
+        u2.textContent = "Diseño"; // lub "Tema"
+        s1.textContent = "Oscuro";
+        s2.textContent = "Blanco";
+        s3.textContent = "Azul";
+        s4.textContent = "Rojo";
+        s5.textContent = "Verde";
+        s6.textContent = "Dorado";
+        s7.textContent = "Degradado azul-rosa";
+        s9.textContent = "Pollo";
+        s10.textContent = "Atardecer";
+        s11.textContent = "Fuego";
+        s12.textContent = "Galaxia";
+        But.textContent = "Enviar";
+        UserInput.placeholder = "Escribe algo...";
+    }
+}
+
+// Nasłuchiwanie zmiany języka
+lang.addEventListener("change", updateLanguage);
+
+// Uruchomienie przy starcie
+updateLanguage();
+
+
+// Logika emoji
+const bar =  document.getElementById("emoji")
+function EmojiBar() {
+
+    if (bar.style.display === "none") {
+        bar.style.display = "flex";
+    } else {
+        bar.style.display = "none";
+    }
+
+// dodawanie emoji
+}
+function like() {
+    UserInput.value += "👍"
+}
+function dislike() {
+    UserInput.value += "👎"
+}
+function yey() {
+    UserInput.value += "😀"
+}
+function happy() {
+    UserInput.value += "😁"
+}
+function smiech() {
+    UserInput.value += "🤣"
+}
+function heart() {
+    UserInput.value += "❤"
+}
+
+// logika klawiatury ekranowej
+const keybord = document.getElementById("keybord")
+const UI = document.getElementById("keybordUI")
+
+keybord.addEventListener('click', function(){
+UI.classList.toggle("hidden");
+})
+//WPISYWANIE CYFR
+function one() {
+ UserInput.value += "1"
+}
+function two() {
+ UserInput.value += "2"
+}
+function tree() {
+ UserInput.value += "3"
+}
+function four() {
+ UserInput.value += "4"
+}
+function five() {
+ UserInput.value += "5"
+}
+function six() {
+ UserInput.value += "6"
+}
+function seven() {
+ UserInput.value += "7"
+}
+function eigth() {
+ UserInput.value += "8"
+}
+function nine() {
+ UserInput.value += "9"
+}
+function zero() {
+ UserInput.value += "0"
+}
+//WPISYWANIE LITEREK
+function Q() {
+ UserInput.value += "Q"
+}
+function W() {
+ UserInput.value += "W"
+}
+function E() {
+ UserInput.value += "E"
+}
+function R() {
+ UserInput.value += "R"
+}
+function T() {
+ UserInput.value += "T"
+}
+function Y() {
+ UserInput.value += "Y"
+}
+function U() {
+ UserInput.value += "U"
+}
+function I() {
+ UserInput.value += "I"
+}
+function O() {
+ UserInput.value += "O"
+}
+function P() {
+ UserInput.value += "P"
+}
+function A() {
+ UserInput.value += "A"
+}
+function S() {
+ UserInput.value += "S"
+}
+
+function D() {
+ UserInput.value += "D"
+}
+function F() {
+ UserInput.value += "F"
+}
+function G() {
+ UserInput.value += "G"
+}
+function H() {
+ UserInput.value += "H"
+}
+function J() {
+ UserInput.value += "J"
+}
+function K() {
+ UserInput.value += "K"
+}
+function L() {
+ UserInput.value += "L"
+}
+function Z() {
+ UserInput.value += "Z"
+}
+function X() {
+ UserInput.value += "X"
+}
+
+function C() {
+ UserInput.value += "C"
+}
+function V() {
+ UserInput.value += "V"
+}
+function B() {
+ UserInput.value += "B"
+}
+function N() {
+ UserInput.value += "N"
+}
+function M() {
+ UserInput.value += "M"
+}
+function zero() {
+ UserInput.value += "0"
+}
+function zero() {
+ UserInput.value += "0"
+}
+
+function zero() {
+ UserInput.value += "0"
+}
+function zero() {
+ UserInput.value += "0"
+}
+
+// ! logika motywów
+
+
+//TODO Funkcja zmieniająca motyw
+function updateTheme() {
+    //! Najpierw usuwamy oba motywy, żeby się nie nakładały
+    document.body.classList.remove('white', 'dark');
+
+    if (switcher.value === "1") {
+        document.body.classList.remove("BluePink");
+        document.body.classList.remove('white');
+        document.body.classList.remove('darkBlue');
+        document.body.classList.remove('red');
+        document.body.classList.remove('green');
+        document.body.classList.remove('gold');
+        document.body.classList.remove("Matrix");
+        document.body.classList.remove("Kurczak");
+        document.body.classList.remove("Sun");
+        document.body.classList.remove("Fire");
+        document.body.classList.remove("galaxy");
+        document.body.classList.add('dark');
+    } 
+    else if (switcher.value === "2") {
+        document.body.classList.remove("BluePink");
+        document.body.classList.remove('darkBlue');
+        document.body.classList.remove('dark');
+        document.body.classList.remove('red');
+        document.body.classList.remove('green');
+        document.body.classList.remove('gold');
+        document.body.classList.remove("Matrix");
+        document.body.classList.remove("Kurczak");
+        document.body.classList.remove("Sun");
+        document.body.classList.remove("galaxy");
+        document.body.classList.remove("Fire");
+        document.body.classList.add('white');
+    }
+    else if (switcher.value === "3") {
+        document.body.classList.remove("BluePink");
+        document.body.classList.remove('white');
+        document.body.classList.remove('dark');
+        document.body.classList.remove('red');
+        document.body.classList.remove('green');
+        document.body.classList.remove('gold');
+        document.body.classList.remove("Matrix")
+        document.body.classList.remove("Kurczak")
+        document.body.classList.remove("Sun");
+        document.body.classList.remove("Fire");
+        document.body.classList.remove("galaxy");
+        document.body.classList.add('darkBlue');
+    }
+    else if (switcher.value === "4") {
+        document.body.classList.remove("BluePink");
+        document.body.classList.remove('white');
+        document.body.classList.remove('dark');
+        document.body.classList.remove('darkBlue');
+        document.body.classList.remove('green');
+        document.body.classList.remove('gold');
+        document.body.classList.remove("Matrix")
+        document.body.classList.remove("Kurczak")
+        document.body.classList.remove("Sun")
+        document.body.classList.remove("Fire");
+        document.body.classList.remove("galaxy")
+        document.body.classList.add('red');
+    }
+    else if (switcher.value === "5") {
+        document.body.classList.remove('white');
+        document.body.classList.remove('dark');
+        document.body.classList.remove('darkBlue');
+        document.body.classList.remove('red');
+        document.body.classList.remove('gold');
+        document.body.classList.remove("BluePink");
+        document.body.classList.remove("Matrix");
+        document.body.classList.remove("Kurczak");
+        document.body.classList.remove("Sun");
+        document.body.classList.remove("Fire");
+        document.body.classList.remove("galaxy");
+        document.body.classList.add('green');
+    }
+    else if (switcher.value === "6") {
+        document.body.classList.remove("BluePink");
+        document.body.classList.remove('white');
+        document.body.classList.remove('dark');
+        document.body.classList.remove('darkBlue');
+        document.body.classList.remove('red');
+        document.body.classList.remove('green');
+        document.body.classList.remove("Matrix");
+        document.body.classList.remove("Kurczak");
+        document.body.classList.remove("Sun");
+        document.body.classList.remove("Fire");
+        document.body.classList.remove("galaxy");
+        document.body.classList.add('gold');
+    }
+    else if(switcher.value === "7"){
+        document.body.classList.remove("white");
+        document.body.classList.remove("dark");
+        document.body.classList.remove("darkBlue");
+        document.body.classList.remove("red");
+        document.body.classList.remove("green");
+        document.body.classList.remove("gold");
+        document.body.classList.remove("Matrix");;
+        document.body.classList.remove("Kurczak");
+        document.body.classList.remove("Sun");
+        document.body.classList.remove("Fire");
+         document.body.classList.remove("galaxy");
+        document.body.classList.add("BluePink");
+    }
+
+    else if(switcher.value === "8"){
+        document.body.classList.remove("white");
+        document.body.classList.remove("dark");
+        document.body.classList.remove("darkBlue");
+        document.body.classList.remove("red");
+        document.body.classList.remove("green");
+        document.body.classList.remove("gold");
+        document.body.classList.remove("BluePink");
+        document.body.classList.remove("Kurczak");
+        document.body.classList.remove("Sun");
+        document.body.classList.remove("Fire");
+        document.body.classList.remove("galaxy");
+        document.body.classList.add("Matrix");
+    }
+
+    else if(switcher.value === "9"){
+        document.body.classList.remove("white");
+        document.body.classList.remove("dark");
+        document.body.classList.remove("darkBlue");
+        document.body.classList.remove("red");
+        document.body.classList.remove("green");
+        document.body.classList.remove("gold");
+        document.body.classList.remove("BluePink");
+        document.body.classList.remove("Matrix");
+        document.body.classList.remove("Sun");
+        document.body.classList.remove("Fire");
+        document.body.classList.remove("galaxy");
+        document.body.classList.add("Kurczak");
+    }
+    else if(switcher.value === "10"){
+        document.body.classList.remove("white");
+        document.body.classList.remove("dark");
+        document.body.classList.remove("darkBlue");
+        document.body.classList.remove("red");
+        document.body.classList.remove("green");
+        document.body.classList.remove("gold");
+        document.body.classList.remove("BluePink");
+        document.body.classList.remove("Matrix");
+        document.body.classList.remove("Kurczak");
+        document.body.classList.remove("Fire");
+        document.body.classList.remove("galaxy");
+        document.body.classList.add("Sun");
+    }
+    else if(switcher.value === "11"){
+        document.body.classList.remove("white");
+        document.body.classList.remove("dark");
+        document.body.classList.remove("darkBlue");
+        document.body.classList.remove("red");
+        document.body.classList.remove("green");
+        document.body.classList.remove("gold");
+        document.body.classList.remove("BluePink");
+        document.body.classList.remove("Matrix");
+        document.body.classList.remove("Kurczak");
+        document.body.classList.remove("galaxy");
+        document.body.classList.remove("Sun");
+        document.body.classList.add("Fire");
+    }
+    else if(switcher.value === "12"){
+        document.body.classList.remove("white");
+        document.body.classList.remove("dark");
+        document.body.classList.remove("darkBlue");
+        document.body.classList.remove("red");
+        document.body.classList.remove("green");
+        document.body.classList.remove("gold");
+        document.body.classList.remove("BluePink");
+        document.body.classList.remove("Matrix");
+        document.body.classList.remove("Kurczak");
+        document.body.classList.remove("Fire");
+        document.body.classList.remove("Sun");
+        document.body.classList.add("galaxy");
+    }
+}
+
+// !1. Nasłuchujemy na zmiany użytkownika
+switcher.addEventListener('change', updateTheme);
+
+// !2. Wywołujemy funkcję raz na starcie, aby dopasować body do aktualnej wartości switchera
+updateTheme();
+</script>
+</html>
