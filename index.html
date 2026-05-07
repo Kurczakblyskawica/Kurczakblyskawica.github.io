@@ -758,20 +758,34 @@ a {
     .main {
         padding: 20px; /* Zmniejszony padding, żeby było więcej miejsca na tekst */
     }
-    #ustawienia {
-        display: flex;
-        align-items: flex-end;
-    flex-direction: column;
-    border-radius: 10px;
-    text-align: down;
-    border: white, 10px, solid;
-    height: min-content;
-    width: min-content;
-    position: fixed;
-    padding: 10px;
-    }
+    
 }
 
+@media (max-width: 768px) {
+    #ustawienia {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+
+        /* PRZENIESIENIE NA DÓŁ */
+        bottom: 10px;
+        top: auto;
+
+        /* WYŚRODKOWANIE */
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 90%;
+        max-width: 320px;
+
+        padding: 15px;
+        border-radius: 15px;
+        z-index: 999;
+
+        text-align: center;
+        letter-spacing: normal;
+    }
+}
 .hidden {
     display: none !important;
 }
