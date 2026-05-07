@@ -762,16 +762,18 @@ a {
 }
 
 @media (max-width: 768px) {
+    /* CHAT wyżej */
+    .main {
+        margin-bottom: 220px; /* robi miejsce na panel ustawień */
+    }
+
+    /* USTAWIENIA na dole jako osobny panel */
     #ustawienia {
         display: flex;
         flex-direction: column;
         position: fixed;
 
-        /* PRZENIESIENIE NA DÓŁ */
         bottom: 10px;
-        top: auto;
-
-        /* WYŚRODKOWANIE */
         left: 50%;
         transform: translateX(-50%);
 
@@ -784,7 +786,14 @@ a {
 
         text-align: center;
         letter-spacing: normal;
+
+        /* ODSTĘP WIZUALNY */
+        box-shadow: 0 0 20px rgba(0,0,0,0.4);
+
+        /* lekka przezroczystość */
+        backdrop-filter: blur(8px);
     }
+}
 }
 .hidden {
     display: none !important;
