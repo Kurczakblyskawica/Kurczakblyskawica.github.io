@@ -1652,12 +1652,21 @@ function heart() {
 }
 
 // logika klawiatury ekranowej
-const keybord = document.getElementById("keybord")
-const UI = document.getElementById("keybordUI")
+// logika klawiatury ekranowej
+const keybord = document.getElementById("keybord");
+const UI = document.getElementById("keybordUI");
 
-keybord.addEventListener('click', function(){
-UI.classList.toggle("hidden");
-})
+// startowo schowana
+UI.classList.add("hidden");
+
+// klik = pokaż / schowaj
+keybord.addEventListener('click', function() {
+    if (UI.classList.contains("hidden")) {
+        UI.classList.remove("hidden");
+    } else {
+        UI.classList.add("hidden");
+    }
+});
 //WPISYWANIE CYFR
 function one() {
  UserInput.value += "1"
